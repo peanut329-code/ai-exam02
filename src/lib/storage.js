@@ -133,7 +133,7 @@ export async function syncFromSupabase() {
       .eq('user_id', userId)
 
     if (error) throw error
-    if (!data || data.length === 0) return null
+    if (!data || data.length === 0) return 0
 
     const questions = data.map(row => ({
       id: row.question_id,

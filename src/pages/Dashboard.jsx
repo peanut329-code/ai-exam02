@@ -18,7 +18,7 @@ export default function Dashboard({ navigate, username }) {
     const count = await syncFromSupabase()
     if (count !== null) {
       setStats(getStats())
-      setSyncMsg(`✓ 從雲端同步了 ${count} 筆錯題`)
+      setSyncMsg(count > 0 ? `✓ 從雲端同步了 ${count} 筆錯題` : '✓ 雲端目前沒有錯題資料')
     } else {
       setSyncMsg('⚠ 同步失敗，請確認 Supabase 設定')
     }
